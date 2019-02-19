@@ -1,9 +1,36 @@
 <div class="layout">
 	<h1 class="title">Кто на фото?</h1>
 	<div class="questions">
-		Здесь будут вопросы
+		{#await currentQuestion}
+		<Loading />
+		{:then questionData}
+		{JSON.stringify(questionData)}
+		{:catch error}
+		<Error />
+		{/await}
 	</div>
 </div>
+
+<script>
+	import { next } from "./api";
+	import Loading from "./Loading.html";
+	import Error from "./Error.html";
+	export default {
+	  components: {
+	    Loading,
+	    Error
+	  },
+	  data() {
+	    return {
+	      currentQuestionId: 0
+	    };
+	  },
+	  computed: {
+	    currentQuestion: ({ currentQuestionId }) => next(currentQuestionId)
+	  }
+	};
+</script>
+
 
 <style>
 	.layout {
@@ -11,13 +38,13 @@
 	}
 	.title {
 	  text-align: center;
-	  font-size: 2rem;
-	  line-height: 2rem;
+	  font-size: 4rem;
+	  line-height: 4rem;
 	  padding: 1rem;
 	  margin: 0;
 	}
 	.questions {
-	  height: calc(100% - 4rem);
+	  height: calc(100% - 6rem);
 	  position: relative;
 	}
 </style>
