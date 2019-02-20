@@ -1,5 +1,8 @@
 <div class="layout">
 	<h1 class="title">Кто на фото?</h1>
+	<div class="score">
+		<Score score={state.score} />
+	</div>
 	<div class="questions">
 		{#if isLoading}
 		<Loading />
@@ -19,12 +22,14 @@
   import Checking from "./Checking.html";
   import Error from "./Error.html";
   import Question from "./Question";
+  import Score from "./Score.html";
   export default {
     components: {
       Loading,
       Checking,
       Error,
-      Question
+      Question,
+      Score
     },
     data() {
       return {
@@ -76,5 +81,10 @@
 	.questions {
 	  height: calc(100% - 6rem);
 	  position: relative;
+	}
+	.score {
+	  position: absolute;
+	  top: 0.5rem;
+	  right: 0.5rem;
 	}
 </style>

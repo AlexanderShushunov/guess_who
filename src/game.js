@@ -45,6 +45,6 @@ export const game = {
   check(state, optionId) {
     return apiCheck(getId(state), optionId)
       .then(setResult(state))
-      .then(calcScore(state));
+      .then(calcScore);
   }
 };
