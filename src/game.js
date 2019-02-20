@@ -38,7 +38,10 @@ export const game = {
   },
   next(state) {
     if (getNextId(state) === undefined) {
-      return Promise.resolve(state);
+      return Promise.resolve({
+        finished: true,
+        score: state.score
+      });
     }
     return apiNext(getNextId(state)).then(setNewQuestion(state));
   },

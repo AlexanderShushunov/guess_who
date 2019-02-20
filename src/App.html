@@ -10,6 +10,8 @@
 		<Checking />
 		{:elseif isError}
 		<Error />
+		{:elseif state.finished}
+		<Result score={state.score} />
 		{:else}
 		<Question {...state.question} on:answer="check(event)" on:next="next()" />
 		{/if}
@@ -23,14 +25,15 @@
   import Error from "./Error.html";
   import Question from "./Question";
   import Score from "./Score.html";
-
+  import Result from "./Result.html";
   export default {
     components: {
       Loading,
       Checking,
       Error,
       Question,
-      Score
+      Score,
+      Result
     },
     data() {
       return {
