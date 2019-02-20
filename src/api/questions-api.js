@@ -31,7 +31,7 @@ const doABitLater = action =>
   new Promise(resolve =>
     setTimeout(() => {
       resolve(action());
-    }, 3000)
+    }, 100)
   );
 
 export const next = (id = 0) => doABitLater(() => findById(id));

@@ -1,0 +1,35 @@
+<div class="question">
+	<img src="{photoSrc}" alt="photo" class="photo" />
+	<div class="options">
+		<Options {options} on:answer="answer(event)" />
+	</div>
+</div>
+
+<script>
+  import Options from "./Options";
+  export default {
+    components: {
+      Options
+    },
+    methods: {
+      answer({ optionId }) {
+        console.log(optionId);
+      }
+    }
+  };
+</script>
+
+<style>
+  .question {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+  }
+  .photo {
+    flex-basis: 50%;
+    padding: 1rem;
+    height: calc(100% - 2rem);
+    object-fit: contain;
+  }
+</style>
+

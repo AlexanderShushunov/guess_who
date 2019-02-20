@@ -4,7 +4,7 @@
 		{#await currentQuestion}
 		<Loading />
 		{:then questionData}
-		{JSON.stringify(questionData)}
+		<Question {...questionData} />
 		{:catch error}
 		<Error />
 		{/await}
@@ -12,23 +12,25 @@
 </div>
 
 <script>
-	import { next } from "./api";
-	import Loading from "./Loading.html";
-	import Error from "./Error.html";
-	export default {
-	  components: {
-	    Loading,
-	    Error
-	  },
-	  data() {
-	    return {
-	      currentQuestionId: 0
-	    };
-	  },
-	  computed: {
-	    currentQuestion: ({ currentQuestionId }) => next(currentQuestionId)
-	  }
-	};
+  import { next } from "./api";
+  import Loading from "./Loading.html";
+  import Error from "./Error.html";
+  import Question from "./Question";
+  export default {
+    components: {
+      Loading,
+      Error,
+      Question
+    },
+    data() {
+      return {
+        currentQuestionId: 0
+      };
+    },
+    computed: {
+      currentQuestion: ({ currentQuestionId }) => next(currentQuestionId)
+    }
+  };
 </script>
 
 

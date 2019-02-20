@@ -1,0 +1,25 @@
+<div class={className} on:click="fire('select')">
+	{text}
+</div>
+
+<script>
+  import { calcClassNames } from "../../calcClassNames";
+  export default {
+    computed: {
+      className: ({ selected }) => calcClassNames("option")({ selected })
+    }
+  };
+</script>
+
+<style>
+  .option {
+    font-size: 60px;
+    padding: 10px;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .option--selected {
+    border-color: red;
+  }
+</style>

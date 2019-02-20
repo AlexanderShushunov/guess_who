@@ -1,0 +1,36 @@
+<div class="Options">
+	{#each options as {text, id} (id) }
+	<Option {text} selected={isSelected(id)} on:select=select(id) /> {/each}
+	<button on:click="fire('answer', {optionId: selectedId})">Click</button>
+</div>
+
+<script>
+  export default {
+    components: {
+      Option: "./Option.html"
+    },
+
+    data() {
+      return {
+        selectedId: undefined
+      };
+    },
+
+    computed: {
+      isSelected: ({ selectedId }) => id => id === selectedId
+    },
+
+    methods: {
+      select(id) {
+        this.set({ selectedId: id });
+      }
+    }
+  };
+</script>
+
+<style>
+	.Options {
+	  display: flex;
+	  flex-direction: column;
+	}
+</style>
