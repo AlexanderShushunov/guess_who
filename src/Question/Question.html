@@ -1,7 +1,7 @@
 <div class="question">
 	<img src="{photoSrc}" alt="photo" class="photo" />
 	<div class="options">
-		<Options {options} on:answer="answer(event)" />
+		<Options {options} on:answer="answer(event)" {rightOption} {alreadyAnswered} />
 	</div>
 </div>
 
@@ -13,7 +13,7 @@
     },
     methods: {
       answer({ optionId }) {
-        console.log(optionId);
+        this.fire("answer", { optionId });
       }
     }
   };

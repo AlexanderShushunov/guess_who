@@ -20,7 +20,7 @@ const questionsData = [
         text: "Альфред Нобель"
       }
     ],
-    answer: 0,
+    rightOption: 0,
     next: 1
   }
 ];
@@ -31,10 +31,20 @@ const doABitLater = action =>
   new Promise(resolve =>
     setTimeout(() => {
       resolve(action());
-    }, 100)
+    }, 1000)
   );
 
-export const next = (id = 0) => doABitLater(() => findById(id));
+export const next = (id = 0) =>
+  doABitLater(() => {
+    const { rightOption, ...question } = findById(id);
+    return question;
+  });
 
-export const check = (id, answer) =>
-  Promise.resolve(findById(id).answer === answer);
+export const check = (id, option) =>
+  doABitLater(() => {
+    const { rightOption, ...question } = findById(id);
+    return {
+      rightOption,
+      result: rightOption === option ? "correct" : "wrong"
+    };
+  });

@@ -6,20 +6,24 @@
   import { calcClassNames } from "../../calcClassNames";
   export default {
     computed: {
-      className: ({ selected }) => calcClassNames("option")({ selected })
+      className: ({ selected, right }) =>
+        calcClassNames("option")({ selected, right })
     }
   };
 </script>
 
 <style>
   .option {
-    font-size: 60px;
-    padding: 10px;
+    font-size: 4rem;
+    padding: 0.5rem;
     border: 3px solid transparent;
-    border-radius: 10px;
+    border-radius: 1rem;
     cursor: pointer;
   }
   .option--selected {
     border-color: red;
+  }
+  .option--right {
+    background: lightgreen;
   }
 </style>

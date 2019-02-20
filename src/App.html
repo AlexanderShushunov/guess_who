@@ -1,38 +1,66 @@
 <div class="layout">
 	<h1 class="title">Кто на фото?</h1>
 	<div class="questions">
-		{#await currentQuestion}
+		{#if isLoading}
 		<Loading />
-		{:then questionData}
-		<Question {...questionData} />
-		{:catch error}
+		{:elseif isChecking}
+		<Checking />
+		{:elseif isError}
 		<Error />
-		{/await}
+		{:else}
+		<Question {...state.question} on:answer="check(event)" />
+		{/if}
 	</div>
 </div>
 
 <script>
-  import { next } from "./api";
+  import { game } from "./game";
   import Loading from "./Loading.html";
+  import Checking from "./Checking.html";
   import Error from "./Error.html";
   import Question from "./Question";
   export default {
     components: {
       Loading,
+      Checking,
       Error,
       Question
     },
     data() {
       return {
-        currentQuestionId: 0
+        state: game.first(),
+        isLoading: true,
+        isChecking: false,
+        isError: false
       };
     },
-    computed: {
-      currentQuestion: ({ currentQuestionId }) => next(currentQuestionId)
+
+    oncreate() {
+      this.next();
+    },
+
+    methods: {
+      next() {
+        const { state } = this.get();
+        this.set({ isLoading: true });
+        game
+          .next(state)
+          .then(newState => this.set({ state: newState }))
+          .catch(() => this.set({ isError: true }))
+          .then(() => this.set({ isLoading: false }));
+      },
+      check({ optionId }) {
+        const { state } = this.get();
+        this.set({ isChecking: true });
+        game
+          .check(state, optionId)
+          .then(newState => this.set({ state: newState }))
+          .catch(err => this.set({ isError: true }))
+          .then(() => this.set({ isChecking: false }));
+      }
     }
   };
 </script>
-
 
 <style>
 	.layout {

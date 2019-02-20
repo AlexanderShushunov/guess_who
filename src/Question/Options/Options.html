@@ -1,10 +1,13 @@
-<div class="Options">
+<div class="options">
 	{#each options as {text, id} (id) }
-	<Option {text} selected={isSelected(id)} on:select=select(id) /> {/each}
-	<button on:click="fire('answer', {optionId: selectedId})">Click</button>
+	<Option {text} selected={isSelected(id)} right={isRight(id)} on:select=select(id) /> {/each}
+	<button class={answerBtnClassName} disabled={!canSelect} on:click="fire('answer', {optionId: selectedId})">
+		Ответить
+	</button>
 </div>
 
 <script>
+  import { calcClassNames } from "../../calcClassNames";
   export default {
     components: {
       Option: "./Option.html"
@@ -17,20 +20,38 @@
     },
 
     computed: {
-      isSelected: ({ selectedId }) => id => id === selectedId
+      canSelect: ({ selectedId, alreadyAnswered }) =>
+        selectedId !== undefined && !alreadyAnswered,
+      isSelected: ({ selectedId }) => id => id === selectedId,
+      isRight: ({ rightOption }) => id => id === rightOption,
+      answerBtnClassName: ({ canSelect }) =>
+        calcClassNames("answer-btn")({ disbaled: !canSelect })
     },
 
     methods: {
       select(id) {
-        this.set({ selectedId: id });
+        const { alreadyAnswered } = this.get();
+        if (!alreadyAnswered) {
+          this.set({ selectedId: id });
+        }
       }
     }
   };
 </script>
 
 <style>
-	.Options {
-	  display: flex;
-	  flex-direction: column;
-	}
+  .options {
+    display: flex;
+    flex-direction: column;
+  }
+  .answer-btn {
+    margin: 2rem;
+    font-family: inherit;
+    font-size: 4rem;
+    border-radius: 1rem;
+    background-color: white;
+  }
+  .answer-btn--disbaled {
+    opacity: 0.2;
+  }
 </style>
