@@ -22,6 +22,29 @@ const questionsData = [
     ],
     rightOption: 0,
     next: 1
+  },
+  {
+    id: 1,
+    photoSrc: "data/Larry_Page_425_512.jpg",
+    options: [
+      {
+        id: 0,
+        text: "Бил Гейтс"
+      },
+      {
+        id: 1,
+        text: "Стив Джобс"
+      },
+      {
+        id: 2,
+        text: "Джефф Безос"
+      },
+      {
+        id: 3,
+        text: "Ларри Пейдж"
+      }
+    ],
+    rightOption: 3
   }
 ];
 

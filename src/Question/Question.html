@@ -3,13 +3,18 @@
 	<div class="options">
 		<Options {options} on:answer="answer(event)" {rightOption} {alreadyAnswered} />
 	</div>
+	{#if alreadyAnswered}
+	<Result result={result} on:close="fire('next')" />
+	{/if}
 </div>
 
 <script>
   import Options from "./Options";
+  import Result from "./Result.html";
   export default {
     components: {
-      Options
+      Options,
+      Result
     },
     methods: {
       answer({ optionId }) {

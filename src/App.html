@@ -3,7 +3,7 @@
 	<div class="score">
 		<Score score={state.score} />
 	</div>
-	<div class="questions">
+	<div class="question">
 		{#if isLoading}
 		<Loading />
 		{:elseif isChecking}
@@ -11,7 +11,7 @@
 		{:elseif isError}
 		<Error />
 		{:else}
-		<Question {...state.question} on:answer="check(event)" />
+		<Question {...state.question} on:answer="check(event)" on:next="next()" />
 		{/if}
 	</div>
 </div>
@@ -23,6 +23,7 @@
   import Error from "./Error.html";
   import Question from "./Question";
   import Score from "./Score.html";
+
   export default {
     components: {
       Loading,
@@ -78,7 +79,7 @@
 	  padding: 1rem;
 	  margin: 0;
 	}
-	.questions {
+	.question {
 	  height: calc(100% - 6rem);
 	  position: relative;
 	}
