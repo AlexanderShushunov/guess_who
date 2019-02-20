@@ -1,7 +1,7 @@
 <div class="options">
 	{#each options as {text, id} (id) }
 	<Option {text} selected={isSelected(id)} right={isRight(id)} on:select=select(id) /> {/each}
-	<button class={answerBtnClassName} disabled={!canSelect} on:click="fire('answer', {optionId: selectedId})">
+	<button class={answerBtnClassName} disabled={!canSelect} on:click="fire('answer', {optionId: $selectedId})">
 		Ответить
 	</button>
 </div>
@@ -13,16 +13,10 @@
       Option: "./Option.html"
     },
 
-    data() {
-      return {
-        selectedId: undefined
-      };
-    },
-
     computed: {
-      canSelect: ({ selectedId, alreadyAnswered }) =>
-        selectedId !== undefined && !alreadyAnswered,
-      isSelected: ({ selectedId }) => id => id === selectedId,
+      canSelect: ({ $selectedId, alreadyAnswered }) =>
+        $selectedId !== undefined && !alreadyAnswered,
+      isSelected: ({ $selectedId }) => id => id === $selectedId,
       isRight: ({ rightOption }) => id => id === rightOption,
       answerBtnClassName: ({ canSelect }) =>
         calcClassNames("answer-btn")({ disbaled: !canSelect })
@@ -32,7 +26,7 @@
       select(id) {
         const { alreadyAnswered } = this.get();
         if (!alreadyAnswered) {
-          this.set({ selectedId: id });
+          this.store.select(id);
         }
       }
     }

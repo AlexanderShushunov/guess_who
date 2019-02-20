@@ -1,8 +1,9 @@
-import App from './App.html';
+import App from "./App.html";
+import { store } from "./store";
 
 var app = new App({
-	target: document.body,
-	data: {}
+  target: document.body,
+  store
 });
 
 export default app;

@@ -4,7 +4,7 @@
 		<Options {options} on:answer="answer(event)" {rightOption} {alreadyAnswered} />
 	</div>
 	{#if alreadyAnswered}
-	<Result result={result} on:close="fire('next')" />
+	<Result result={result} on:close="$next()" />
 	{/if}
 </div>
 
@@ -16,9 +16,16 @@
       Options,
       Result
     },
+    computed: {
+      photoSrc: ({ $question }) => $question.photoSrc,
+      options: ({ $question }) => $question.options,
+      rightOption: ({ $question }) => $question.rightOption,
+      alreadyAnswered: ({ $question }) => $question.alreadyAnswered,
+      result: ({ $question }) => $question.result
+    },
     methods: {
       answer({ optionId }) {
-        this.fire("answer", { optionId });
+        this.store.check(optionId);
       }
     }
   };

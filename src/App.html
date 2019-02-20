@@ -1,72 +1,35 @@
 <div class="layout">
 	<h1 class="title">Кто на фото?</h1>
 	<div class="score">
-		<Score score={state.score} />
+		<Score />
 	</div>
-	<div class="question">
-		{#if isLoading}
-		<Loading />
-		{:elseif isChecking}
-		<Checking />
-		{:elseif isError}
-		<Error />
-		{:elseif state.finished}
-		<Result score={state.score} />
-		{:else}
-		<Question {...state.question} on:answer="check(event)" on:next="next()" />
-		{/if}
+	<div class="main">
+		<svelte:component this={Main} />
 	</div>
 </div>
 
 <script>
-  import { game } from "./game";
   import Loading from "./Loading.html";
   import Checking from "./Checking.html";
   import Error from "./Error.html";
-  import Question from "./Question";
+  import Questions from "./Questions";
   import Score from "./Score.html";
   import Result from "./Result.html";
   export default {
     components: {
-      Loading,
-      Checking,
-      Error,
-      Question,
-      Score,
-      Result
+      Score
     },
-    data() {
-      return {
-        state: game.first(),
-        isLoading: true,
-        isChecking: false,
-        isError: false
-      };
-    },
-
-    oncreate() {
-      this.next();
-    },
-
-    methods: {
-      next() {
-        const { state } = this.get();
-        this.set({ isLoading: true });
-        game
-          .next(state)
-          .then(newState => this.set({ state: newState }))
-          .catch(() => this.set({ isError: true }))
-          .then(() => this.set({ isLoading: false }));
-      },
-      check({ optionId }) {
-        const { state } = this.get();
-        this.set({ isChecking: true });
-        game
-          .check(state, optionId)
-          .then(newState => this.set({ state: newState }))
-          .catch(err => this.set({ isError: true }))
-          .then(() => this.set({ isChecking: false }));
+    computed: {
+      Main: ({ $isError, $isLoading, $isChecking, $isFinished }) => {
+        if ($isError) return Error;
+        if ($isLoading) return Loading;
+        if ($isChecking) return Checking;
+        if ($isFinished) return Result;
+        return Questions;
       }
+    },
+    oncreate() {
+      this.store.next();
     }
   };
 </script>
@@ -82,7 +45,7 @@
 	  padding: 1rem;
 	  margin: 0;
 	}
-	.question {
+	.main {
 	  height: calc(100% - 6rem);
 	  position: relative;
 	}
