@@ -1,15 +1,58 @@
 const questionsData = [
   {
-    id: 0,
+    photoSrc: "data/charles_babbage_363_430.jpg",
+    options: [
+      {
+        id: 0,
+        text: "Евклид"
+      },
+      {
+        id: 1,
+        text: "Иммануил Кант"
+      },
+      {
+        id: 2,
+        text: "Чарлз Бэббидж"
+      },
+      {
+        id: 3,
+        text: "Георг Кантор"
+      }
+    ],
+    rightOption: 2
+  },
+  {
+    photoSrc: "data/ada_lovelace_1280_1839.jpg",
+    options: [
+      {
+        id: 0,
+        text: "Ада Лавлейс"
+      },
+      {
+        id: 1,
+        text: "Наталья Гончарова"
+      },
+      {
+        id: 2,
+        text: "Екатерина II"
+      },
+      {
+        id: 3,
+        text: "Клара Цеткин"
+      }
+    ],
+    rightOption: 0
+  },
+  {
     photoSrc: "data/Alan_Turing_2303_3120.jpg",
     options: [
       {
         id: 0,
-        text: "Алан Тьюринг"
+        text: "Алонзо Чёрч"
       },
       {
         id: 1,
-        text: "Алонзо Чёрч"
+        text: "Алан Тьюринг"
       },
       {
         id: 2,
@@ -20,11 +63,97 @@ const questionsData = [
         text: "Альфред Нобель"
       }
     ],
-    rightOption: 0,
-    next: 1
+    rightOption: 1
   },
   {
-    id: 1,
+    photoSrc: "data/bjarne-stroustrup_632_953.jpg",
+    options: [
+      {
+        id: 0,
+        text: "Роб Пайк"
+      },
+      {
+        id: 1,
+        text: "Гвидо ван Россум"
+      },
+      {
+        id: 2,
+        text: "Никлаус Вирт"
+      },
+      {
+        id: 3,
+        text: "Бьёрн Страуструп"
+      }
+    ],
+    rightOption: 3
+  },
+  {
+    photoSrc: "data/Robert_Cecil_Martin.png",
+    options: [
+      {
+        id: 0,
+        text: "Мартин Фаулер"
+      },
+      {
+        id: 1,
+        text: "Роберт Мартин"
+      },
+      {
+        id: 2,
+        text: "Стив Макконнелл"
+      },
+      {
+        id: 3,
+        text: "Дональд Кнут"
+      }
+    ],
+    rightOption: 1
+  },
+  {
+    photoSrc: "data/Sir_Tim_Berners-Lee.jpg",
+    options: [
+      {
+        id: 0,
+        text: "Тим Бернерс-Ли"
+      },
+      {
+        id: 1,
+        text: "Джозеф Ликлайдер"
+      },
+      {
+        id: 2,
+        text: "Том Дженнингс"
+      },
+      {
+        id: 3,
+        text: "Сатоси Накамото"
+      }
+    ],
+    rightOption: 0
+  },
+  {
+    photoSrc: "data/rich_harris.jpeg",
+    options: [
+      {
+        id: 0,
+        text: "Джордан Валк"
+      },
+      {
+        id: 1,
+        text: "Рич Харрис"
+      },
+      {
+        id: 2,
+        text: "Эван Ю"
+      },
+      {
+        id: 3,
+        text: "Мишко Хевери"
+      }
+    ],
+    rightOption: 1
+  },
+  {
     photoSrc: "data/Larry_Page_425_512.jpg",
     options: [
       {
@@ -45,10 +174,42 @@ const questionsData = [
       }
     ],
     rightOption: 3
+  },
+  {
+    photoSrc: "data/ivan_novikov.jpg",
+    options: [
+      {
+        id: 0,
+        text: "Какой-то мальчик"
+      },
+      {
+        id: 1,
+        text: "Иван Новиков"
+      },
+      {
+        id: 2,
+        text: "@jonny"
+      },
+      {
+        id: 3,
+        text: "Он тут главный"
+      }
+    ],
+    rightOption: 3
   }
 ];
 
-const findById = id => questionsData.find(question => question.id === id);
+const isLast = (arr, index) => arr.length === index + 1;
+
+const addIds = data =>
+  data.map((question, index) => ({
+    ...question,
+    id: index,
+    next: !isLast(data, index) ? index + 1 : undefined
+  }));
+
+const findById = id =>
+  addIds(questionsData).find(question => question.id === id);
 
 const doABitLater = action =>
   new Promise(resolve =>
