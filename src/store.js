@@ -19,7 +19,11 @@ class QuizStore extends Store {
       .check(state, optionId)
       .then(newState => this.set({ state: newState }))
       .catch(err => this.set({ isError: true }))
-      .then(() => this.set({ isChecking: false }));
+      .then(() => this.set({ isChecking: false }))
+      .then(() => {
+        const { questionCount } = this.get();
+        this.set({ questionCount: questionCount + 1 });
+      });
   }
   select(id) {
     this.set({ selectedId: id });
@@ -31,7 +35,8 @@ export const store = new QuizStore({
   isLoading: true,
   isChecking: false,
   isError: false,
-  selectedId: undefined
+  selectedId: undefined,
+  questionCount: 0
 });
 
 store.compute("score", ["state"], ({ score }) => score);
