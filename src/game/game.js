@@ -1,4 +1,4 @@
-import { next as apiNext, check as apiCheck } from "./api";
+import { next as apiNext, check as apiCheck } from "./questions-api";
 
 const getNextId = state => state.question.next;
 
