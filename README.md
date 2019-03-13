@@ -28,7 +28,7 @@ npm run build
 
 [Слайды](https://drive.google.com/file/d/18cfPmBmF_6RgQmmspK3ckkU12FjLnAws/view?usp=sharing)
 
-[Видео is coming soon]()
+[Видео](https://www.youtube.com/watch?v=6pkHf2tY4Tc&t=1s)
 
 ### Полезные ссылки
 
