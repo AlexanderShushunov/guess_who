@@ -176,23 +176,23 @@ const questionsData = [
     rightOption: 3
   },
   {
-    photoSrc: "data/ivan_novikov.jpg",
+    photoSrc: "data/tigprogmmist.jpg",
     options: [
       {
         id: 0,
-        text: "Какой-то мальчик"
+        text: "Супермен"
       },
       {
         id: 1,
-        text: "Иван Новиков"
+        text: "Бэтмен"
       },
       {
         id: 2,
-        text: "@jonny"
+        text: "Дедпул"
       },
       {
         id: 3,
-        text: "Он тут главный"
+        text: "Тыжпрограммист"
       }
     ],
     rightOption: 3
