@@ -1,27 +1,5 @@
 const questionsData = [
   {
-    photoSrc: "data/charles_babbage_363_430.jpg",
-    options: [
-      {
-        id: 0,
-        text: "Евклид"
-      },
-      {
-        id: 1,
-        text: "Иммануил Кант"
-      },
-      {
-        id: 2,
-        text: "Чарлз Бэббидж"
-      },
-      {
-        id: 3,
-        text: "Георг Кантор"
-      }
-    ],
-    rightOption: 2
-  },
-  {
     photoSrc: "data/ada_lovelace_1280_1839.jpg",
     options: [
       {
@@ -66,28 +44,6 @@ const questionsData = [
     rightOption: 1
   },
   {
-    photoSrc: "data/bjarne-stroustrup_632_953.jpg",
-    options: [
-      {
-        id: 0,
-        text: "Роб Пайк"
-      },
-      {
-        id: 1,
-        text: "Гвидо ван Россум"
-      },
-      {
-        id: 2,
-        text: "Никлаус Вирт"
-      },
-      {
-        id: 3,
-        text: "Бьёрн Страуструп"
-      }
-    ],
-    rightOption: 3
-  },
-  {
     photoSrc: "data/Robert_Cecil_Martin.png",
     options: [
       {
@@ -110,28 +66,6 @@ const questionsData = [
     rightOption: 1
   },
   {
-    photoSrc: "data/Sir_Tim_Berners-Lee.jpg",
-    options: [
-      {
-        id: 0,
-        text: "Тим Бернерс-Ли"
-      },
-      {
-        id: 1,
-        text: "Джозеф Ликлайдер"
-      },
-      {
-        id: 2,
-        text: "Том Дженнингс"
-      },
-      {
-        id: 3,
-        text: "Сатоси Накамото"
-      }
-    ],
-    rightOption: 0
-  },
-  {
     photoSrc: "data/rich_harris.jpeg",
     options: [
       {
@@ -152,28 +86,6 @@ const questionsData = [
       }
     ],
     rightOption: 1
-  },
-  {
-    photoSrc: "data/Larry_Page_425_512.jpg",
-    options: [
-      {
-        id: 0,
-        text: "Бил Гейтс"
-      },
-      {
-        id: 1,
-        text: "Стив Джобс"
-      },
-      {
-        id: 2,
-        text: "Джефф Безос"
-      },
-      {
-        id: 3,
-        text: "Ларри Пейдж"
-      }
-    ],
-    rightOption: 3
   },
   {
     photoSrc: "data/tigprogmmist.jpg",
