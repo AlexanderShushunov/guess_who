@@ -34,13 +34,13 @@ npm run build
 ### Полезные ссылки
 
 - [Еще пример](https://github.com/AlexanderShushunov/simple-svelte-component) компонента и его использования вне Svelte приложений.
-- [A Real-World Comparison of Front-End Frameworks with Benchmarks](https://medium.freecodecamp.org/a-real-world-comparison-of-front-end-frameworks-with-benchmarks-2018-update-e5760fb4a962).
+- [A Real-World Comparison of Front-End Frameworks with Benchmarks](https://medium.freecodecamp.org/a-realworld-comparison-of-front-end-frameworks-with-benchmarks-2019-update-4be0d3c78075).
 - [Картинка](https://twitter.com/Rich_Harris/status/1065992585095929857/photo/1), которая доказывает, что svelte очень быстрый :)
 - [Документация](https://svelte.technology/).
 - Русскоязычный telegram [чат](https://t.me/sveltejs).
 - [Статьи](https://habr.com/ru/users/PaulMaly/) Павла Малышева, наверное, самого сведущего в вопросе русскоязычный программиста.
 - [Доклад](https://www.youtube.com/watch?v=tgvgCAOR4O8&feature=youtu.be) Александра Федотова на MoscowJS 42. Он выяснил, что после 600 уникальных компонентов код на Svelte становится больше, чем аналогичный на React.
 - [Awesome Svelte](https://github.com/sveltejs/awesome#community) - список полезностей, связанных со Svelte.
-- [Значение слова Svelte](https://en.oxforddictionaries.com/definition/svelte)
+- [Значение](https://en.oxforddictionaries.com/definition/svelte) слова Svelte.
 - [Выступление Рича Харриса](https://youtu.be/qqt6YxAZoOc) на JSConf EU 2018. Бог Демо отвернулся от него в тот день, но все равно стоит посмотреть этот доклад.
 - [Выпуск RadioJS](https://radiojs.ru/2018/12/radiojs-54), посвящённый Svelte.
