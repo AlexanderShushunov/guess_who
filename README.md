@@ -33,6 +33,7 @@ npm run build
 
 ### Полезные ссылки
 
+- [Еще пример](https://github.com/AlexanderShushunov/simple-svelte-component) компонента и его использования вне Svelte приложений.
 - [A Real-World Comparison of Front-End Frameworks with Benchmarks](https://medium.freecodecamp.org/a-real-world-comparison-of-front-end-frameworks-with-benchmarks-2018-update-e5760fb4a962).
 - [Картинка](https://twitter.com/Rich_Harris/status/1065992585095929857/photo/1), которая доказывает, что svelte очень быстрый :)
 - [Документация](https://svelte.technology/).
