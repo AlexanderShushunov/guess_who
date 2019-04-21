@@ -25,11 +25,19 @@ npm run build
 
 Это приложение сделано на фреймворке [Svelte](https://svelte.technology).
 
-По мотивам разработки я сделал небольшое выступление на [Tver.io Polyglot Meetup](https://tver.io/) 21.02.2018.
+По мотивам разработки я сделал небольшое выступление на
+
+### [Tver.io Polyglot Meetup](https://tver.io/) 21.02.2019
 
 [Слайды](https://drive.google.com/file/d/18cfPmBmF_6RgQmmspK3ckkU12FjLnAws/view?usp=sharing)
 
 [Видео](https://www.youtube.com/watch?v=6pkHf2tY4Tc&t=1s)
+
+### [#ITSubbotnk Spring Moscow 2019](https://events.epam.com/events/itsubbotnik-msk-spring-2019/talks/9325) 20.04.2019
+
+[Слайды](https://drive.google.com/file/d/1i-h-yqs33jPTUjjyJayd4ThMXeudji9C/view?usp=sharing)
+
+[Видео]() is comming soon
 
 ### Полезные ссылки
 
