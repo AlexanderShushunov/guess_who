@@ -52,3 +52,4 @@ npm run build
 - [Значение](https://en.oxforddictionaries.com/definition/svelte) слова Svelte.
 - [Выступление Рича Харриса](https://youtu.be/qqt6YxAZoOc) на JSConf EU 2018. Бог Демо отвернулся от него в тот день, но все равно стоит посмотреть этот доклад.
 - [Выпуск RadioJS](https://radiojs.ru/2018/12/radiojs-54), посвящённый Svelte.
+- [Меньше кода - меньше багов](https://svelte.dev/blog/write-less-code)
