@@ -42,9 +42,10 @@ npm run build
 ### Полезные ссылки
 
 - [Еще пример](https://github.com/AlexanderShushunov/simple-svelte-component) компонента и его использования вне Svelte приложений.
+- [Тот же пример](https://github.com/AlexanderShushunov/simple-svelte3-component) на 3-ей версии
 - [A Real-World Comparison of Front-End Frameworks with Benchmarks](https://medium.freecodecamp.org/a-realworld-comparison-of-front-end-frameworks-with-benchmarks-2019-update-4be0d3c78075).
 - [Картинка](https://twitter.com/Rich_Harris/status/1065992585095929857/photo/1), которая доказывает, что svelte очень быстрый :)
-- [Документация](https://svelte.technology/).
+- [Документация](https://svelte.dev/).
 - Русскоязычный telegram [чат](https://t.me/sveltejs).
 - [Статьи](https://habr.com/ru/users/PaulMaly/) Павла Малышева, наверное, самого сведущего в вопросе русскоязычный программиста.
 - [Доклад](https://www.youtube.com/watch?v=tgvgCAOR4O8&feature=youtu.be) Александра Федотова на MoscowJS 42. Он выяснил, что после 600 уникальных компонентов код на Svelte становится больше, чем аналогичный на React.
