@@ -1,2 +1,2 @@
-import Questions from "./Questions.html";
+import Questions from "./Questions.svelte";
 export default Questions;

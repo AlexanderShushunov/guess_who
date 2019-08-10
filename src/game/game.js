@@ -43,6 +43,7 @@ export const game = {
         score: state.score
       });
     }
+
     return apiNext(getNextId(state)).then(setNewQuestion(state));
   },
   check(state, optionId) {

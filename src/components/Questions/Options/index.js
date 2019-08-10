@@ -1,2 +1,2 @@
-import Options from "./Options.html";
+import Options from "./Options.svelte";
 export default Options;

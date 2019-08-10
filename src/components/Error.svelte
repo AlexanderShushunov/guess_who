@@ -1,9 +1,6 @@
-<div class="checking">
-	Проверка ответа...
-</div>
-
 <style>
-  .checking {
+  .error {
+    color: red;
     font-size: 6rem;
     display: flex;
     align-items: center;
@@ -11,3 +8,5 @@
     justify-content: center;
   }
 </style>
+
+<div class="error">Упс...</div>

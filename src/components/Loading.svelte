@@ -1,14 +1,11 @@
-<div class="error">
-	Упс...
-</div>
-
 <style>
-  .error {
-    color: red;
+  .loading {
     font-size: 6rem;
     display: flex;
     align-items: center;
-    height: 100%;
     justify-content: center;
+    height: 100%;
   }
 </style>
+
+<div class="loading">Загрузка вопроса...</div>

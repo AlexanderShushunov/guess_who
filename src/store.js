@@ -1,46 +1,33 @@
-import { Store } from "svelte/store.js";
+import { writable, derived, get } from "svelte/store";
 import { game } from "./game";
 
-class QuizStore extends Store {
-  next(description) {
-    const { state } = this.get();
-    this.set({ isLoading: true });
-    game
-      .next(state)
-      .then(newState => this.set({ state: newState }))
-      .catch(() => this.set({ isError: true }))
-      .then(() => this.set({ isLoading: false }))
-      .then(() => this.set({ selectedId: undefined }));
-  }
-  check(optionId) {
-    const { state } = this.get();
-    this.set({ isChecking: true });
-    game
-      .check(state, optionId)
-      .then(newState => this.set({ state: newState }))
-      .catch(err => this.set({ isError: true }))
-      .then(() => this.set({ isChecking: false }))
-      .then(() => {
-        const { questionCount } = this.get();
-        this.set({ questionCount: questionCount + 1 });
-      });
-  }
-  select(id) {
-    this.set({ selectedId: id });
-  }
-}
+const state = writable(game.first());
+export const isLoading = writable(true);
+export const isChecking = writable(false);
+export const isError = writable(false);
+export const questionCount = writable(0);
 
-export const store = new QuizStore({
-  state: game.first(),
-  isLoading: true,
-  isChecking: false,
-  isError: false,
-  selectedId: undefined,
-  questionCount: 0
-});
+export const score = derived(state, ({ score }) => score);
+export const question = derived(state, ({ question }) => question);
+export const isFinished = derived(state, ({ finished }) => finished);
 
-store.compute("score", ["state"], ({ score }) => score);
+export const next = () => {
+  isLoading.set(true);
+  const $state = get(state);
+  game
+    .next($state)
+    .then(newState => state.set(newState))
+    .catch(() => isError.set(true))
+    .finally(() => isLoading.set(false));
+};
 
-store.compute("isFinished", ["state"], ({ finished }) => Boolean(finished));
-
-store.compute("question", ["state"], ({ question }) => question);
+export const check = optionId => {
+  isLoading.set(true);
+  const $state = get(state);
+  game
+    .check($state, optionId)
+    .then(newState => state.set(newState))
+    .then(() => questionCount.update($count => $count + 1))
+    .catch(() => isError.set(true))
+    .finally(() => isLoading.set(false));
+};

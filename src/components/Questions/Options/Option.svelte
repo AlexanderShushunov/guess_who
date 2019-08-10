@@ -1,15 +1,13 @@
-<div class={className} on:click="fire('select')">
-	{text}
-</div>
-
 <script>
+  import { createEventDispatcher } from "svelte";
   import { calcClassNames } from "../../../utils/calcClassNames";
-  export default {
-    computed: {
-      className: ({ selected, right }) =>
-        calcClassNames("option")({ selected, right })
-    }
-  };
+
+  export let selected;
+  export let right;
+  export let text;
+
+  const dispatch = createEventDispatcher();
+  $: className = calcClassNames("option")({ selected, right });
 </script>
 
 <style>
@@ -27,3 +25,5 @@
     background: lightgreen;
   }
 </style>
+
+<div class={className} on:click={() => dispatch('select')}>{text}</div>

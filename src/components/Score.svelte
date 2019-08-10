@@ -1,6 +1,7 @@
-<div class="score">
-	Счет: {$score}
-</div>
+<script>
+  import { getContext } from "svelte";
+  let score = getContext("score");
+</script>
 
 <style>
   .score {
@@ -14,3 +15,5 @@
     border-radius: 3rem;
   }
 </style>
+
+<div class="score">Счет: {$score}</div>
