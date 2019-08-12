@@ -36,19 +36,20 @@ export const game = {
       score: 0
     };
   },
-  next(state) {
+  async next(state) {
     if (getNextId(state) === undefined) {
-      return Promise.resolve({
+      return {
         finished: true,
         score: state.score
-      });
+      };
     }
 
-    return apiNext(getNextId(state)).then(setNewQuestion(state));
+    const nextQuestion = await apiNext(getNextId(state));
+    return setNewQuestion(state)(nextQuestion);
   },
-  check(state, optionId) {
-    return apiCheck(getId(state), optionId)
-      .then(setResult(state))
-      .then(calcScore);
+  async check(state, optionId) {
+    const result = await apiCheck(getId(state), optionId);
+    const newState = setResult(state)(result);
+    return calcScore(newState);
   }
 };

@@ -11,23 +11,28 @@ export const score = derived(state, ({ score }) => score);
 export const question = derived(state, ({ question }) => question);
 export const isFinished = derived(state, ({ finished }) => finished);
 
-export const next = () => {
+export const next = async () => {
   isLoading.set(true);
   const $state = get(state);
-  game
-    .next($state)
-    .then(newState => state.set(newState))
-    .catch(() => isError.set(true))
-    .finally(() => isLoading.set(false));
+  try {
+    const newState = await game.next($state);
+    state.set(newState);
+  } catch (e) {
+    isError.set(true);
+  }
+  isLoading.set(false);
 };
 
-export const check = optionId => {
+export const check = async optionId => {
   isLoading.set(true);
   const $state = get(state);
-  game
-    .check($state, optionId)
-    .then(newState => state.set(newState))
-    .then(() => questionCount.update($count => $count + 1))
-    .catch(() => isError.set(true))
-    .finally(() => isLoading.set(false));
+  try {
+    const newState = await game.check($state, optionId);
+
+    state.set(newState);
+  } catch (e) {
+    isError.set(true);
+  }
+  questionCount.update($count => $count + 1);
+  isLoading.set(false);
 };
