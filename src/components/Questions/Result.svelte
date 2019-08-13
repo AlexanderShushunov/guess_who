@@ -1,5 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
+  import { scale, fly } from "svelte/transition";
+
   export let result;
   const dispath = createEventDispatcher();
 </script>
@@ -22,7 +24,7 @@
   }
 </style>
 
-<div class="result" on:click={() => dispath('close')}>
+<div class="result" on:click={() => dispath('close')} in:scale out:fly>
   {#if result === 'correct'}
     <img src="data/correct.png" alt="correct" class="sign" />
   {:else}
