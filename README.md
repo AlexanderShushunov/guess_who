@@ -37,7 +37,14 @@ npm run build
 
 [Слайды](https://drive.google.com/file/d/1i-h-yqs33jPTUjjyJayd4ThMXeudji9C/view?usp=sharing)
 
-[Видео]() is comming soon
+[Видео](https://www.youtube.com/watch?v=zn0aNihceDk&t=76s)
+
+### [RS Conf 2019](https://rsconf.by/speakers/alexander-shushunov.html) 10.08.2019
+
+[Слайды](https://drive.google.com/file/d/1rYWHK3r7eOWMz0E-FuJ6_ROdwVrVtCYq/view?usp=sharing)
+
+[Видео](https://www.youtube.com/watch?v=H9HUaQyUZpc)
+
 
 ### Полезные ссылки
 
