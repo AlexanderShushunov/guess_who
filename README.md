@@ -3,6 +3,12 @@
 Нужно угадать, кто изображен на фото.
 Все люди как-то связаны с ИТ ;)
 
+
+### Ветки
+
+**v3** Версия на Svelte 3.  
+
+
 ## Запуск для разработки
 
 ```bash
@@ -45,6 +51,11 @@ npm run build
 
 [Видео](https://www.youtube.com/watch?v=H9HUaQyUZpc)
 
+### [EPAM Insider Kazakhstan 2019](https://events.epam.com/events/almaty-insider/talks/11385) 19.10.2019
+
+[Слайды]() is coming soon
+
+[Видео]()  is coming soon
 
 ### Полезные ссылки
 
