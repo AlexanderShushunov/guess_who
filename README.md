@@ -53,7 +53,7 @@ npm run build
 
 ### [EPAM Insider Kazakhstan 2019](https://events.epam.com/events/almaty-insider/talks/11385) 19.10.2019
 
-[Слайды]() is coming soon
+[Слайды](https://drive.google.com/file/d/1NCMHLAdmBpaOFpUkGKpWrlN7GtupreEo/view?usp=sharing)
 
 [Видео]()  is coming soon
 
