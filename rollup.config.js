@@ -3,6 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+import copy from 'rollup-plugin-copy';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -23,6 +24,11 @@ export default {
 			css: css => {
 				css.write('public/bundle.css');
 			}
+		}),
+
+		copy({
+			targets: [{ src: 'data/*', dest: 'public/data' }],
+			verbose: true
 		}),
 
 		// If you have external dependencies installed from
