@@ -33,5 +33,6 @@ printStep "build image"
 
 printStep "restart on server"
 ssh root@${deployAddress} 'docker stop guess'
-ssh root@${deployAddress} 'docker container rm guess'
+ #ssh root@${deployAddress} 'docker container rm guess'
+ssh root@${deployAddress} 'docker rm guess' # for old docker version
 ssh root@${deployAddress} 'docker run --detach --publish=8090:80 --name=guess ashushunov/guess_how'
