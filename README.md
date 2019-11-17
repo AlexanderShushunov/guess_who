@@ -57,6 +57,13 @@ npm run build
 
 [Видео]()  is coming soon
 
+### [EPAM ITNight Togliatti 2019](https://events.epam.com/events/itnight-togliatti/talks/11857) 16.10.2019
+
+[Слайды](https://drive.google.com/file/d/10WR2zkbUrmCb0xKCU99yGeXN6CdPa-uZ/view?usp=sharing)
+
+[Видео]()  is coming soon
+
+
 ### Полезные ссылки
 
 - [Пример](https://github.com/AlexanderShushunov/simple-svelte-component) компонента и его использования вне Svelte приложений.
