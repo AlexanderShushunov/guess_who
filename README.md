@@ -61,7 +61,7 @@ npm run build
 
 [Слайды](https://drive.google.com/file/d/10WR2zkbUrmCb0xKCU99yGeXN6CdPa-uZ/view?usp=sharing)
 
-[Видео]()  is coming soon
+[Видео](https://www.youtube.com/watch?v=dJ70yxlcd2s)
 
 
 ### Полезные ссылки
